@@ -11,6 +11,12 @@ class Array
 		unique_elements
 
 	end
+
+	def two_sum
+		pair_positions = []
+		self.each do |element|
+		end
+	end
 end
 
 dups = [1,2,3,5,2,2,4, 7, 8]
