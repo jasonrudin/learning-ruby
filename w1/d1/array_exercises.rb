@@ -14,13 +14,21 @@ class Array
 
 	def two_sum
 		pair_positions = []
-		self.each do |element|
+		counter = 1
+		self.each_with_index do |element, index|
+			self[counter..-1].each_with_index do |comparator, secondIndex|
+				if (element + comparator == 0)
+					puts "#{index}, #{comparator}"
+					pair_positions << [index, secondIndex + counter]
+				end
+			end
+			counter = counter + 1
 		end
+
+		pair_positions
 	end
 end
 
-dups = [1,2,3,5,2,2,4, 7, 8]
-p dups.my_uniq
+dups = [-1, 0, 2, -2, 1, 1, -1]
+p dups.two_sum
 
-clear = [1,2,3,4,5]
-p clear.my_uniq
