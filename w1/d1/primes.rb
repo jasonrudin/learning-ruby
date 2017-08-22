@@ -3,7 +3,6 @@
 require 'byebug'
 
 def prime?(num)
-  byebug
 
   (2...num).each do |i|
     if (num % i) == 0
@@ -16,10 +15,12 @@ end
 
 def primes(num_primes)
   ps = []
-  num = 1
+  num = 2
   while ps.count < num_primes
     ps << num if prime?(num)
+    num = num + 1
   end
+  ps
 end
 
 if __FILE__ == $PROGRAM_NAME
