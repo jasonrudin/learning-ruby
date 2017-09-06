@@ -56,6 +56,16 @@ class TreeNode
 		end
 	end
 
+	def path
+		path_array = [self.value]
+		current_node = self
+		while(current_node.parent != nil)
+			path_array.unshift(current_node.parent.value)
+			current_node = current_node.parent
+		end
+		path_array
+	end
+
 end
 
 
