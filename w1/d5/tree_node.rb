@@ -16,10 +16,15 @@ class TreeNode
 		@children
 	end
 
-	def add_child(new_childgit)
-		#to-do: add validation that the new child isn't already in the tree by doing a dfs on the new child's value
-		@children << new_child
-		new_child.parent = self
+	def add_child(new_child)
+		result = self.dfs(new_child.value)
+		if (!result.is_a?(TreeNode))
+			@children << new_child
+			new_child.parent = self
+		else
+			p "already have #{new_child.value}"
+		end
+
 	end
 
 	def remove_child(child_to_remove)
@@ -43,7 +48,6 @@ class TreeNode
 		to_search << self
 		while !to_search.empty?
 			to_check = to_search.shift
-			p to_check.value
 			if (to_check.value == target_value)
 				return to_check
 			else
@@ -71,10 +75,4 @@ l3_child1 = TreeNode.new(100, nil)
 l2_child5.add_child(l3_child1)
 
 result = node.bfs(4)
-
-if result.is_a?(TreeNode)
-	p "YE"
-else
-	p "Ne"
-end
 
