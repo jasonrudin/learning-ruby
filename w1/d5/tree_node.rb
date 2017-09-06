@@ -47,7 +47,7 @@ class TreeNode
 		to_search = []
 		to_search << self
 		while !to_search.empty?
-			to_check = to_search.shift
+			to_check = to_search.shift	
 			if (to_check.value == target_value)
 				return to_check
 			else
@@ -59,7 +59,7 @@ class TreeNode
 end
 
 
-
+=begin
 
 node = TreeNode.new(5, nil)
 node_child1 = TreeNode.new(3, node)
@@ -75,4 +75,6 @@ l3_child1 = TreeNode.new(100, nil)
 l2_child5.add_child(l3_child1)
 
 result = node.bfs(4)
+
+=end
 
