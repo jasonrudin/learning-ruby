@@ -14,7 +14,7 @@ class KnightPathFinder
 		nodes_to_spawn = [@move_tree]
 		new_additions = 3
 
-		while(new_additions > 0)
+		while(nodes_to_spawn != [])
 			output = self.new_move_positions(nodes_to_spawn[0].value)
 			output.each do |potential_position|
 				TreeNode.new(potential_position, nodes_to_spawn[0])
@@ -24,7 +24,7 @@ class KnightPathFinder
 				p child.value
 			end
 
-			nodes_to_spawn = nodes_to_spawn + nodes_to_spawn[0].children
+			#nodes_to_spawn = nodes_to_spawn + nodes_to_spawn[0].children
 			nodes_to_spawn.shift
 			
 			#nodes_to_spawn.each do |value|
